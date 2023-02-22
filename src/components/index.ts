@@ -1,3 +1,6 @@
 export { Account } from './Account'
 export { Connect } from './Connect'
+export { Bridge } from './Bridge'
+export { Balance } from './Balance'
+export { Logo } from './Logo'
 export { NetworkSwitcher } from './NetworkSwitcher'

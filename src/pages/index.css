@@ -1,0 +1,213 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #111d29;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+}
+
+.extra {
+  background: linear-gradient(130deg, #972ea2 0%, #fd3559 51%, #b664b0 100%);
+  color: #b664b0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+}
+
+.swap-tool {
+  background: linear-gradient(83.55deg, #972ea2 14.95%, #fd3559 84.15%);
+  border-radius: 20px;
+  text-align: left;
+  width: 40%;
+  margin: auto;
+}
+
+.swap-body {
+  padding: 5px 20px 20px;
+  margin-top: 20px;
+}
+
+.swap-form {
+  line-height: 35px;
+  margin: 15px auto 0px;
+  cursor: pointer;
+  font-size: 19px;
+  color: #fff;
+}
+
+.swap-input-box .swap-box {
+  margin-bottom: 8px;
+}
+
+.swap-input-box .swap-input-main {
+  background: #111d29;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 12px;
+  position: relative;
+  color: #ffffff;
+}
+
+.swap-input-box .swap-input-main h3 {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0px;
+  padding-left: 4px;
+}
+
+.swap-input-box .swap-input-main .swap-balance {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  display: block;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.swap-input-box label,
+.theme-input-box label,
+.price-pool label {
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+}
+
+.swap-input-box .swap-input {
+  background: transparent;
+  border: 0px;
+  font-weight: 500;
+  font-size: 26px;
+  outline: 0;
+  padding-right: 110px;
+  width: 100%;
+  color: #ffffff;
+}
+
+.swap-input-box .farm-deposite {
+  background: #111d29;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 12px 12px;
+  position: relative;
+}
+
+.swap-btn {
+  width: 70%;
+  margin: 20px 0 0 auto;
+}
+.theme-btn {
+  background: #fd3559;
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff !important;
+  padding: 10px 50px;
+  cursor: pointer;
+  line-height: normal;
+}
+
+.header {
+  margin-bottom: 80px;
+  padding: 20px 20px;
+  /* border-bottom: #fff solid 2px; */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .logo {
+  background-image: url(../assests/logo.png) !important;
+  background: url(/logo.png);
+} */
+
+.connect {
+  background: #fd3559;
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff !important;
+  padding: 10px 50px;
+  cursor: pointer;
+  line-height: normal;
+}
+
+.account {
+}
+
+.network {
+  margin-top: 10px;
+}
+
+/* Media Queries for Small Devices (Max width 767px) */
+@media only screen and (max-width: 767px) {
+  .swap-tool {
+    width: 80%;
+  }
+
+  .swap-input-box .swap-input {
+    font-size: 20px;
+  }
+
+  .swap-btn {
+    width: 100%;
+  }
+
+  .header {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .connect {
+    padding: 15px 20px;
+    font-size: 20px;
+  }
+  .network {
+    display: none;
+  }
+}
+
+/* Media Queries for Medium Devices (Min width 768px and Max width 991px) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .swap-tool {
+    width: 60%;
+  }
+
+  .swap-input-box .swap-input {
+    font-size: 22px;
+  }
+
+  .swap-btn {
+    width: 80%;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+  .connect {
+    padding: 15px 60px;
+    font-size: 20px;
+  }
+}
+
+/* Media Queries for Large Devices (Min width 992px) */
+@media only screen and (min-width: 992px) {
+  .swap-tool {
+    width: 40%;
+  }
+
+  .swap-input-box .swap-input {
+    font-size: 26px;
+  }
+
+  .header {
+    margin-bottom: 80px;
+  }
+}

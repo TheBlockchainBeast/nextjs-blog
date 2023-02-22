@@ -1,24 +1,40 @@
-import { useAccount } from 'wagmi'
+import Link from "next/link";
+import { useAccount } from "wagmi";
 
-import { Account, Connect, NetworkSwitcher } from '../components'
+import {
+  Account,
+  Connect,
+  NetworkSwitcher,
+  Bridge,
+  Balance,
+  Logo,
+} from "../components";
 
 function Page() {
-  const { isConnected } = useAccount()
+  const { isConnected } = useAccount();
 
   return (
     <>
-      <h1>wagmi + Next.js</h1>
-
-      <Connect />
-
-      {isConnected && (
-        <>
-          <Account />
-          <NetworkSwitcher />
-        </>
-      )}
+      <header className="header">
+        <div className="">
+          <Link href="/">
+            <Logo />
+          </Link>
+        </div>
+        <div className="">
+          <Connect />
+          {isConnected && (
+            <>
+              {/* <Account />
+              <Balance /> */}
+              <NetworkSwitcher />
+            </>
+          )}
+        </div>
+      </header>
+      <h1 className="extra">DecentraTools Bridge</h1>
+      <Bridge />
     </>
-  )
+  );
 }
-
-export default Page
+export default Page;
