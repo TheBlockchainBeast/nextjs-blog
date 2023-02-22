@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { BigNumber } from "ethers";
 import * as React from "react";
 import { usePrepareContractWrite, useContractWrite } from "wagmi";
 import { Balance } from "../components";
@@ -23,7 +23,7 @@ export function Bridge() {
       },
     ],
     functionName: "depositEth",
-    args: [ethers.utils.formatEther(amount)],
+    args: [parseInt(amount)],
   });
   const { write } = useContractWrite(config);
 
