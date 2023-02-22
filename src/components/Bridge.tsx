@@ -1,19 +1,12 @@
-import { BigNumber } from "ethers";
+import { ethers } from "ethers";
 import * as React from "react";
 import { usePrepareContractWrite, useContractWrite } from "wagmi";
 import { Balance } from "../components";
 export function Bridge() {
-  const [amount, setAmount] = React.useState("");
+  const [amount, setAmount] = React.useState("0.002");
   const { config } = usePrepareContractWrite({
     address: "0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f",
     abi: [
-      {
-        inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-        name: "depositEth",
-        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-        stateMutability: "payable",
-        type: "function",
-      },
       {
         inputs: [],
         name: "depositEth",
@@ -23,7 +16,9 @@ export function Bridge() {
       },
     ],
     functionName: "depositEth",
-    // args: [BigNumber.from(amount)],
+    overrides: {
+      value: ethers.utils.parseEther(amount),
+    },
   });
   const { write } = useContractWrite(config);
 
@@ -64,7 +59,7 @@ export function Bridge() {
             </div> */}
             <div className="swap-icon"></div>
             <div className="swap-input-box">
-              <label>Bridge To</label>
+              <label>Bridge To Arbitrum</label>
               <div className="swap-input-main">
                 <div className="swap-box">
                   <div className="dropdown">
