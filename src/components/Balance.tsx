@@ -10,7 +10,7 @@ export function Balance() {
   if (isError) return <div>Error fetching balance</div>;
   return (
     <div>
-      Balance: {data?.formatted} {data?.symbol}
+      Balance: {data?.formatted.slice(0, 7)} {data?.symbol}
     </div>
   );
 }
