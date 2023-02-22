@@ -23,7 +23,7 @@ export function Bridge() {
       },
     ],
     functionName: "depositEth",
-    args: [parseInt(amount)],
+    // args: [BigNumber.from(amount)],
   });
   const { write } = useContractWrite(config);
 
