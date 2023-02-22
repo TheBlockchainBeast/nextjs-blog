@@ -1,139 +1,31 @@
+import { ethers } from "ethers";
 import * as React from "react";
-import {
-  usePrepareContractWrite,
-  useContractWrite,
-  useWaitForTransaction,
-} from "wagmi";
+import { usePrepareContractWrite, useContractWrite } from "wagmi";
 import { Balance } from "../components";
 export function Bridge() {
   const [amount, setAmount] = React.useState("");
-
-  const {
-    config,
-    error: prepareError,
-    isError: isPrepareError,
-  } = usePrepareContractWrite({
-    address: "0x2bB103EC2482f030C0b39022417371a84627f578",
+  const { config } = usePrepareContractWrite({
+    address: "0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f",
     abi: [
       {
-        inputs: [{ internalType: "uint32", name: "amount", type: "uint32" }],
-        name: "bridgeEthToArbitrum",
-        outputs: [],
+        inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+        name: "depositEth",
+        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
         stateMutability: "payable",
         type: "function",
       },
       {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "address",
-            name: "from",
-            type: "address",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
-          },
-        ],
-        name: "EthLocked",
-        type: "event",
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: "address",
-            name: "to",
-            type: "address",
-          },
-          {
-            indexed: false,
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
-          },
-        ],
-        name: "EthWithdrawn",
-        type: "event",
-      },
-      {
-        inputs: [
-          {
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
-          },
-        ],
-        name: "withdrawEth",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
         inputs: [],
-        name: "getBridgeAddress",
-        outputs: [
-          {
-            internalType: "address",
-            name: "",
-            type: "address",
-          },
-        ],
-        stateMutability: "pure",
-        type: "function",
-      },
-      {
-        inputs: [],
-        name: "getLockedEthAmount",
-        outputs: [
-          {
-            internalType: "uint256",
-            name: "",
-            type: "uint256",
-          },
-        ],
-        stateMutability: "view",
-        type: "function",
-      },
-      {
-        inputs: [],
-        name: "getMessengerAddress",
-        outputs: [
-          {
-            internalType: "address",
-            name: "",
-            type: "address",
-          },
-        ],
-        stateMutability: "pure",
-        type: "function",
-      },
-      {
-        inputs: [],
-        name: "getTokenGatewayAddress",
-        outputs: [
-          {
-            internalType: "address",
-            name: "",
-            type: "address",
-          },
-        ],
-        stateMutability: "pure",
+        name: "depositEth",
+        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+        stateMutability: "payable",
         type: "function",
       },
     ],
-    functionName: "bridgeEthToArbitrum",
-    args: [parseInt(amount)],
+    functionName: "depositEth",
+    args: [ethers.utils.formatEther(amount)],
   });
-  const { data, error, isError, write } = useContractWrite(config);
-
-  const { isLoading, isSuccess } = useWaitForTransaction({
-    hash: data?.hash,
-  });
+  const { write } = useContractWrite(config);
 
   return (
     <form
@@ -145,7 +37,7 @@ export function Bridge() {
       <div className="swap-tool">
         <div className="swap-body">
           <div className="swap-form">
-            <div className="swap-input-box">
+            {/* <div className="swap-input-box">
               <label>Bridge From</label>
               <div className="swap-input-main">
                 <div className="swap-box">
@@ -169,7 +61,7 @@ export function Bridge() {
                 />
                 <span className="swap-balance">Balance : 0.00</span>
               </div>
-            </div>
+            </div> */}
             <div className="swap-icon"></div>
             <div className="swap-input-box">
               <label>Bridge To</label>
@@ -182,7 +74,7 @@ export function Bridge() {
                       data-toggle="modal"
                       data-target="#select-token-popup"
                     >
-                      ARBITRUM ONE
+                      ETH
                     </button>
                   </div>
                 </div>
@@ -190,7 +82,7 @@ export function Bridge() {
                   className="swap-input"
                   id="amount"
                   onChange={(e) => setAmount(e.target.value)}
-                  placeholder="0.00"
+                  placeholder="0.01"
                   value={amount}
                 />
                 <span className="swap-balance">
@@ -199,7 +91,9 @@ export function Bridge() {
               </div>
             </div>
             <div className="swap-btn text-center">
-              <button className="theme-btn">Bridge Now</button>
+              <button disabled={!write} className="theme-btn">
+                Bridge Now
+              </button>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { configureChains, createClient } from 'wagmi'
-import { arbitrum, mainnet } from 'wagmi/chains'
+import { mainnet } from 'wagmi/chains'
 // import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 // import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
@@ -8,7 +8,7 @@ import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 import { publicProvider } from 'wagmi/providers/public'
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [arbitrum, mainnet],
+  [mainnet],
   [
     publicProvider(),
   ],
