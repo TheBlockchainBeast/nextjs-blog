@@ -18,6 +18,24 @@ body {
   -webkit-box-decoration-break: clone;
 }
 
+.error {
+  border: 1px solid #ff0000; /* red border */
+  background-color: #ffebeb; /* light red background */
+  color: #ff0000; /* red text color */
+  padding: 10px;
+  margin: 20px 0px 0px 0px;
+  border-radius: 5px;
+}
+
+.success {
+  border: 1px solid #008000; /* green border */
+  background-color: #e8ffe8; /* light green background */
+  color: #008000; /* green text color */
+  padding: 10px;
+  margin: 20px 0px 0px 0px;
+  border-radius: 5px;
+}
+
 .swap-tool {
   background: linear-gradient(83.55deg, #972ea2 14.95%, #fd3559 84.15%);
   border-radius: 20px;
@@ -123,11 +141,6 @@ body {
   justify-content: space-between;
 }
 
-/* .logo {
-  background-image: url(../assests/logo.png) !important;
-  background: url(/logo.png);
-} */
-
 .connect {
   background: #fd3559;
   border: 2px solid #ffffff;
@@ -153,6 +166,19 @@ body {
     width: 80%;
   }
 
+  .swap-body {
+    padding: 5px 20px 20px;
+    margin-top: 20px;
+  }
+
+  .swap-form {
+    line-height: 35px;
+    margin: 15px auto 0px;
+    cursor: pointer;
+    font-size: 19px;
+    color: #fff;
+  }
+
   .swap-input-box .swap-input {
     font-size: 20px;
   }
@@ -172,9 +198,18 @@ body {
   .network {
     display: none;
   }
+
+  .swap-input-box .swap-input-main .swap-balance {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.3);
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+  }
 }
 
-/* Media Queries for Medium Devices (Min width 768px and Max width 991px) */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .swap-tool {
     width: 60%;

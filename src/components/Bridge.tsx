@@ -44,14 +44,13 @@ export function Bridge() {
       <div className="swap-tool">
         <div className="swap-body">
           <div className="swap-form">
-            <div className="swap-icon"></div>
             <div className="swap-input-box">
               <label>Bridge To Arbitrum</label>
               <div className="swap-input-main">
                 <div className="swap-box">
                   <div className="dropdown">
                     <button
-                      className="dropdown-select extra"
+                      className="extra"
                       type="button"
                       data-toggle="modal"
                       data-target="#select-token-popup"
@@ -78,7 +77,7 @@ export function Bridge() {
               </button>
             </div>
             {isSuccess && (
-              <div>
+              <div className="success">
                 Successfully Bridged your ETH!
                 <div>
                   <a href={`https://etherscan.io/tx/${data?.hash}`}>
@@ -88,7 +87,9 @@ export function Bridge() {
               </div>
             )}
             {(isPrepareError || isError) && (
-              <div>Error: {(prepareError || error)?.message}</div>
+              <div className="error">
+                Error: {(prepareError || error)?.message.slice(0, 45)}
+              </div>
             )}
           </div>
         </div>
